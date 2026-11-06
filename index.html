@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#26372b">
+<title>Opération Soldat — Gestion de base</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="crest">OS</div><div><h1>OPÉRATION SOLDAT</h1><p>Centre de commandement · Secteur Alpha</p></div></div>
+  <div class="resources">
+    <div>🪙 <b id="money">5 000</b><small>Crédits</small></div>
+    <div>🪖 <b id="soldiers">8</b><small>Soldats</small></div>
+    <div>⚡ <b id="morale">80%</b><small>Moral</small></div>
+  </div>
+</header>
+<main>
+  <section class="missionbar">
+    <div><span class="eyebrow">OBJECTIF ACTUEL</span><strong id="objective">Construire une caserne et un centre physique</strong><small id="objectiveProgress">0 / 2 infrastructures construites</small></div>
+    <div class="daybox">JOUR <b id="day">01</b><button id="nextDay">Passer la journée →</button></div>
+  </section>
+  <section class="layout">
+    <aside class="sidebar">
+      <div class="card">
+        <h2>🏗️ Construire</h2><p class="muted">Choisis un bâtiment, puis sélectionne une parcelle libre sur la carte.</p>
+        <div id="buildingChoices" class="choices"></div>
+        <p id="buildHint" class="hint">Aucun bâtiment sélectionné.</p>
+      </div>
+      <div class="card">
+        <h2>👨‍✈️ Effectifs</h2>
+        <div class="stats"><div><small>Endurance</small><b id="endurance">20</b></div><div><small>Formation</small><b id="training">20</b></div><div><small>Santé</small><b id="health">100%</b></div><div><small>Expérience</small><b id="xp">0</b></div></div>
+        <button class="wide" id="recruit">＋ Recruter un soldat · 100</button>
+        <button class="wide secondary" id="train">Entraînement collectif · 50</button>
+        <p class="muted" id="trainingInfo">Construis un centre physique ou un centre de formation pour améliorer les capacités.</p>
+      </div>
+      <div class="card">
+        <h2>🧭 Missions</h2>
+        <p class="muted">Opérations fictives de secours et d'aide humanitaire. Les résultats dépendent de la préparation de l'équipe.</p>
+        <div id="missions" class="missionlist"></div>
+      </div>
+      <div class="card">
+        <h2>📒 Journal</h2><div id="log" class="log"></div>
+      </div>
+    </aside>
+    <section class="mapPanel">
+      <div class="maphead"><div><span class="eyebrow">VUE ISOMÉTRIQUE 2D</span><h2>Ta base militaire</h2></div><span class="pill">NIVEAU 1</span></div>
+      <div class="mapclip">
+        <div class="terrain">
+          <div class="road road-a"></div><div class="road road-b"></div><div class="road road-c"></div>
+          <div class="fence fence-top"></div><div class="fence fence-left"></div>
+          <div class="tree t1">🌴</div><div class="tree t2">🌴</div><div class="tree t3">🌵</div><div class="tree t4">🌴</div><div class="tree t5">🌵</div>
+          <div class="helicopter">🚁</div><div class="truck">🚚</div>
+          <div id="plots" class="plots"></div>
+          <div class="maplabel">SECTEUR ALPHA · QG</div>
+        </div>
+      </div>
+      <div class="mapfooter"><span>🟩 Parcelle libre</span><span>🏢 Infrastructure construite</span><span>📱 Compatible mobile</span></div>
+      <div class="quickactions"><button id="save">💾 Sauvegarder</button><button id="reset" class="danger">Nouvelle partie</button><span id="saveStatus">Sauvegarde automatique activée</span></div>
+    </section>
+  </section>
+</main>
+<footer>OPÉRATION SOLDAT · Jeu de stratégie et de gestion fictif · Version 1.0</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="game.js"></script>
+</body></html>
